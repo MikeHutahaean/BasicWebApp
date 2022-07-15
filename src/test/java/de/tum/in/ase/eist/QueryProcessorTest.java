@@ -30,4 +30,11 @@ class QueryProcessorTest {
 		}
 	}
 
+	@Test
+	void testMultiplied(){
+		String expected = "36";
+		String frage = "what is 6 multiplied by 6";
+		assertEquals(expected,queryProcessor.process(frage));
+	}
+
 }
