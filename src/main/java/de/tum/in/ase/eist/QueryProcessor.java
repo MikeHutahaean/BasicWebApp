@@ -26,8 +26,8 @@ public class QueryProcessor {
           }
            return String.valueOf(zahl3);
 
-        } else if (query.contains("largest")){
-           int index = query.indexOf(':');
+        } /*else if (query.contains("largest")){
+          /* int index = query.indexOf(':');
            String s = query.substring(index+1);
            Integer k = null;
            String arr[] = s.split(" ");
@@ -35,7 +35,7 @@ public class QueryProcessor {
            for(int i=0;i<arr.length;i++){
                try {
                    temp = Integer.parseInt(arr[i]);
-               }catch(ClassCastException){
+               }catch(ClassCastException e){
                    continue;
                }
                if(k == null){
@@ -46,10 +46,22 @@ public class QueryProcessor {
 
            }
            return (k==null)?"null": String.valueOf(k);
+        }*/ else if(query.contains("multiplied")){
+            String arr[] = query.split(" ");
+            Integer k = null;
+            for(int i=0;i<arr.length;i++){
+                if(arr[i].equals("multiplied")){
+                  k = Integer.parseInt(arr[i-1])*Integer.parseInt(arr[i+2]);
+                }
+            }
+
+
+            return (k==null)?null:String.valueOf(k);
         }
 
          else { // TODO extend the programm here
             return "";
         }
+
     }
 }
