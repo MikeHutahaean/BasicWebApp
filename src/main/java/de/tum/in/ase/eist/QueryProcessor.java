@@ -26,6 +26,26 @@ public class QueryProcessor {
           }
            return String.valueOf(zahl3);
 
+        } else if (query.contains("largest")){
+           int index = query.indexOf(':');
+           String s = query.substring(index+1);
+           Integer k = null;
+           String arr[] = s.split(" ");
+           int temp =0;
+           for(int i=0;i<arr.length;i++){
+               try {
+                   temp = Integer.parseInt(arr[i]);
+               }catch(ClassCastException){
+                   continue;
+               }
+               if(k == null){
+                   k = temp;
+               }else if (k<temp){
+                   k =temp;
+               }
+
+           }
+           return (k==null)?"null": String.valueOf(k);
         }
 
          else { // TODO extend the programm here
