@@ -2,6 +2,8 @@ package de.tum.in.ase.eist;
 
 import org.springframework.stereotype.Service;
 
+import java.util.*;
+
 @Service
 public class QueryProcessor {
 
@@ -57,6 +59,34 @@ public class QueryProcessor {
 
 
             return (k==null)?null:String.valueOf(k);
+        } else if (query.contains("square") && query.contains("cube")){
+            String arr [] = query.split(" ");
+            List<Double> listi = new ArrayList<Double>();
+            int i;
+            for( i=0;i<arr.length;i++){
+                if(arr[i].equals(":")){
+                    break;
+                }
+            }
+            for(; i< arr.length;i++){
+                if(arr[i].equals(",")){
+                    continue;
+                }
+                double a = Double.parseDouble(arr[i]);
+                double cube = Math.pow(a,1/3);
+                double square = Math.sqrt(a);
+
+                if(Math.floor(cube) == cube && Math.floor(square) == square){
+                    listi.add(a);
+                }
+
+            }
+
+            String s="";
+            for(Double d:listi){
+                s = s+" "+String.valueOf(d);
+            }
+            return  s;
         }
 
          else { // TODO extend the programm here
