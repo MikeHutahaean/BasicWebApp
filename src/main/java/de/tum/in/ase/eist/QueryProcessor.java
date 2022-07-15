@@ -23,7 +23,8 @@ public class QueryProcessor {
            String zahl1 = query.substring(j,i);
            i+=4;
            String zahl2= query.substring(i,k);
-           return String.valueOf(zahl1) + String.valueOf(zahl2);
+           int zahl3 = Integer.parseInt(zahl1) + Integer.parseInt(zahl2);
+           return String.valueOf(zahl3);
 
         }
 
