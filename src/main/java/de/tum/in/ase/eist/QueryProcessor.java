@@ -16,14 +16,14 @@ public class QueryProcessor {
         } else if  (query.contains("largest")){
             return "832";
         } else if (query.contains("plus")){
-           int i = query.indexOf("plus");
-           int j = query.indexOf("is");
-           j+=2;
-           int k = query.indexOf("?");
-           String zahl1 = query.substring(j,i);
-           i+=4;
-           String zahl2= query.substring(i,k);
-           int zahl3 = Integer.parseInt(zahl1) + Integer.parseInt(zahl2);
+            String arr [] = query.split(" ");
+             int zahl3=0;
+            for(int i=0 ;i<arr.length;i++){
+              if(arr[i].equals("plus")){
+                 zahl3 = Integer.parseInt(arr[i-1])+Integer.parseInt(arr[i+1]);
+              }
+
+          }
            return String.valueOf(zahl3);
 
         }
