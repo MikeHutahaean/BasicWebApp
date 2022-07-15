@@ -15,6 +15,16 @@ public class QueryProcessor {
            return "Mikhael";
         } else if  (query.contains("largest")){
             return "832";
+        } else if (query.contains("plus")){
+           int i = query.indexOf("plus");
+           int j = query.indexOf("is");
+           j+=2;
+           int k = query.indexOf("?");
+           String zahl1 = query.substring(j,i);
+           i+=4;
+           String zahl2= query.substring(i,k);
+           return String.valueOf(zahl1) + String.valueOf(zahl2);
+
         }
 
          else { // TODO extend the programm here
